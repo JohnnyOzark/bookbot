@@ -1,3 +1,9 @@
+import sys
+
+if len(sys.argv) < 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
+
 def get_book_text(file_path):
     try:
         with open(file_path) as f:
@@ -12,7 +18,7 @@ from stats import count_characters
 from stats import sort_report
 
 def main():
-    file_path = "books/frankenstein.txt"
+    file_path = sys.argv[1]
     book_text = get_book_text(file_path)
     
     if book_text:
